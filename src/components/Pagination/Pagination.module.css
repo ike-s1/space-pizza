@@ -1,0 +1,39 @@
+.pagination li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid  #ad12a0;
+  border-radius: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.pagination li:hover {
+  background-color: #ad12a0;
+}
+
+.pagination li:hover a {
+  color: white;
+}
+
+.pagination li a {
+  color: #ad12a0;
+  padding: 12px;
+}
+
+.pagination :global .selected {
+  background-color: #ad12a0;
+}
+
+.pagination :global .selected a {
+  color: white;
+}
+/*# sourceMappingURL=Pagination.module.css.map */
