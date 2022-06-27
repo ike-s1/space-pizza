@@ -10,14 +10,14 @@
           align-items: center;
   width: 45px;
   height: 45px;
-  border: 1px solid  #ad12a0;
+  border: 1px solid  #fe5f1e;
   border-radius: 30px;
   margin-right: 10px;
   cursor: pointer;
 }
 
 .pagination li:hover {
-  background-color: #ad12a0;
+  background-color: #fe5f1e;
 }
 
 .pagination li:hover a {
@@ -25,12 +25,12 @@
 }
 
 .pagination li a {
-  color: #ad12a0;
+  color: #fe5f1e;
   padding: 12px;
 }
 
 .pagination :global .selected {
-  background-color: #ad12a0;
+  background-color: #fe5f1e;
 }
 
 .pagination :global .selected a {

@@ -130,10 +130,11 @@
   }
 
   &--cart {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     line-height: 23px;
     padding: 12px 25px;
+
 
     svg {
       margin-right: 8px;

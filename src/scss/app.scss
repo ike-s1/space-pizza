@@ -4,7 +4,8 @@
 
 
 body {
-  background: $background;
+  background: url('../assets/img/pizzaBg.jpg') 0 0 / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .wrapper {
@@ -177,11 +178,21 @@ body {
  
 
   &__item {
+    justify-content: center;
     display: flex;
     width: 100%;
     border-top: 1px solid $gray-line;
     padding-top: 30px;
     margin-top: 30px;
+
+
+    @media (max-width: 600px) {
+      position: relative;
+      min-width: 300px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    } 
 
     &-img {
       display: flex;
@@ -196,16 +207,26 @@ body {
     }
 
     &-info {
+      padding-left: 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 40%;
 
+      @media (max-width: 600px) {
+        align-items: center;
+  
+      
+      } 
+  
+
       h3 {
         font-weight: bold;
         font-size: 22px;
         line-height: 27px;
+        max-width: 80%;
         letter-spacing: 0.01em;
+
       }
 
       p {
@@ -220,13 +241,38 @@ body {
       justify-content: space-between;
       width: 13%;
 
+      b {
+        padding: 5px;
+      }
+
       &-minus {
         svg {
           path:first-of-type {
             display: none;
           }
         }
+
+        &:disabled {
+          opacity: 0.4;
+          border-color: gray;
+          &:active {
+            transform: none;
+          }
+
+          &:hover {
+            background-color: transparent;
+            svg  path {
+              fill: gray;
+          }
+          }
+
+          svg  path {
+              fill: gray;
+          }
+        }
       }
+
+
 
       b {
         font-size: 22px;
@@ -234,12 +280,14 @@ body {
     }
 
     &-price {
+      padding-left: 40px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       width: 33%;
 
       b {
+        text-align: center;
         font-weight: bold;
         font-size: 22px;
         letter-spacing: 0.01em;
@@ -249,8 +297,13 @@ body {
     &-remove {
       display: flex;
       align-items: center;
+      justify-content: center;
       justify-content: flex-end;
-      width: 4%;
+      @media (max-width: 700px) {
+        position: absolute;
+        top:  20px;
+        right: 20px; 
+      } 
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
@@ -281,10 +334,20 @@ body {
 
   &__bottom {
     margin: 50px 0;
+   
 
     &-details {
       display: flex;
+      padding: 0px 40px;
       justify-content: space-between;
+      @media (max-width: 700px) {
+        align-items: center;
+        flex-direction: column;
+        span {
+          margin-bottom: 20px;
+          font-size: 20px !important;
+        }
+      } 
 
       span {
         font-size: 22px;
@@ -301,6 +364,13 @@ body {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
+      @media (max-width: 700px) {
+        align-items: center;
+        flex-direction: column-reverse;
+        .pay-btn  {
+          margin-bottom: 20px;
+        }
+      } 
 
       .go-back-btn {
         display: flex;
@@ -345,8 +415,21 @@ body {
 
   &--empty {
     margin: 80px auto;
-    width: 620px;
+    padding: 0 40px;
+    max-width: 620px;
     text-align: center;
+
+    .emodji {
+     font-size: 40px;
+  
+    
+    }
+    @media (max-width: 654px) {
+      margin: 20px auto;
+      h2 {
+        
+      }
+    }
 
     h2 {
       font-weight: 600;
@@ -380,4 +463,42 @@ body {
       font-size: 18px;
     }
   }
+}
+
+.fullPizza {
+  text-align:justify;
+  display: flex;
+  @media (max-width: 930px) {
+    flex-direction: column-reverse;
+    &__info {
+      margin-bottom: 10px;
+    }
+    &__prev {
+      text-align: center;
+      padding-top: 0px;
+        h4 {
+          font-size: 35px;
+        }
+      }
+  }
+  
+  &__prev {
+  padding-top: 75px;
+    h4 {
+      font-size: 35px;
+      text-align: center;
+    }
+  }
+  &__info {
+    font-size: 25px;
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 35px;
+      margin-bottom: 40px;
+    }
+
+
+  }
+
 }

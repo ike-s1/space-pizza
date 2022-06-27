@@ -1,19 +1,33 @@
-import React from "react";
-import logoSvg from '../assets/img/logoBg.png'
-import {Link} from 'react-router-dom';
+import logoSvg from '../assets/img/logo-pizza.png'
+import {Link, useLocation} from 'react-router-dom';
 import Search from "./Search/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../redux/slices/filterSlice";
+import { useEffect, useRef } from 'react';
+import { selectCart} from '../redux/slices/cart/selectors';
+import { setFilters } from '../redux/slices/filter/slice';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {items, totalPrice} = useSelector(state => state.cart);
-  const totalCount = items.reduce((sum,item) => sum + item.count,0);
+  const {items, totalPrice} = useSelector(selectCart);
+  const totalCount = items.reduce((sum:number, item:any) => sum + item.count,0);
+  const {pathname}  = useLocation();
+  const isMounted = useRef(false);
+
+
+  useEffect(() => {
+    if(isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  },[items])
+
 
   const resetParams = () => { 
       dispatch(setFilters({
         activeCategory: 0,
         currentPage: 1,
+        searchValue: '',
         sort: { name:'popularity(Desc)',sortProperty: 'rating',order: 'desc'}
       }))
   }
@@ -30,7 +44,9 @@ const Header = () => {
           </div>
           </div>
         </Link>
-          <Search />
+          {
+            pathname  !=='/cart' && <Search />
+          }
         </div>     
           <div className="header__cart">
             <Link to="/cart" className="button button--cart">

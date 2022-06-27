@@ -1,10 +1,16 @@
-import React from 'react';
 import style from './Pagination.module.scss';
 import ReactPaginate from 'react-paginate';
 import { useDispatch } from 'react-redux';
+import { FC } from 'react';
+import { AnyAction } from '@reduxjs/toolkit';
 
 
-const Pagination = ({setCurrentPage, currentPage}) => {
+
+type PaginationProps = {
+  setCurrentPage: (page: number) => AnyAction;
+  currentPage:number;
+}
+const Pagination:FC<PaginationProps>= ({setCurrentPage, currentPage}) => {
  
   const dispatch = useDispatch();
 
@@ -19,7 +25,6 @@ const Pagination = ({setCurrentPage, currentPage}) => {
         pageCount={3}
         forcePage={currentPage - 1}
         previousLabel="<"
-        renderOnZeroPageCount={null}
       />
         </div>
     );
