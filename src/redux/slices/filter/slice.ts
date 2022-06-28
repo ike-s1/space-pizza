@@ -8,9 +8,9 @@ const { sort, activeCategory,currentPage} = getFilterFromLS();
 
 const initialState: FilterSliceState = {
   searchValue: '',
-  sort: sort ||  { name:'popularity(Desc)',sortProperty: 'rating',order: 'desc'},
-  activeCategory,
-  currentPage
+  sort:  sort || { name:'popularity(Desc)',sortProperty: 'rating', order: 'desc'},
+  activeCategory: activeCategory || 0,
+  currentPage: currentPage || 1,
 };
 
 export const filterSlice = createSlice({

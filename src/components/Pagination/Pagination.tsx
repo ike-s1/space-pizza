@@ -11,8 +11,7 @@ type PaginationProps = {
   currentPage:number;
 }
 const Pagination:FC<PaginationProps>= ({setCurrentPage, currentPage}) => {
- 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     return (
         <div >
