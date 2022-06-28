@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { FC } from "react";
 import { useAppDispatch } from "../redux/store";
 import { selectFilter} from "../redux/slices/filter/selectors";
-import { setCurrentPage } from "../redux/slices/filter/slice";
+import { setCurrentPage, setFilters } from "../redux/slices/filter/slice";
 import { selectPizzaData } from "../redux/slices/pizzas/selectors";
 import { fetchPizzas } from "../redux/slices/pizzas/asyncActions";
 import { Categories, Pagination, PizzaBlock, Skeleton } from "../components";
+import { FetchPizzasArgs } from "../redux/slices/pizzas/types";
 
 
 const Home:FC = () => {
@@ -33,44 +34,10 @@ const Home:FC = () => {
 
 
   useEffect(() => {
-    // if (isMounted.current) {
-    //    const params = {
-    //     activeCategory:activeCategory > 0 ? activeCategory : null,
-    //     sort,
-    //     currentPage,
-    //    };
-  
-    //    const queryString = qs.stringify(params, { skipNulls: true });
-  
-    //     navigate(`/?${queryString}`);
-    //   }
-  
-    //   const params = qs.parse(window.location.search.substring(1)) as unknown as  FetchPizzasArgs;
-    //   const sortObj = sortList.find((obj) => obj.name === params.sort.name);
-    //   dispatch(
-    //     setFilters({
-    //       searchValue,
-    //       activeCategory,
-    //       currentPage,
-    //       sort: sortObj || sortList[0],
-    //     })
-    //   );
-
       getPizzas();
   }, [sort, activeCategory, searchValue, currentPage]);
-  
-//if there was a first render and changes were made
-  // useEffect(() => {
-  //   if(isMounted.current) {
-  //     const queryString = qs.stringify({
-  //       sort,
-  //       activeCategory,
-  //       currentPage,
-  //     });
-  //     navigate(`?${queryString}`);
-  //   }
-  //   isMounted.current = true;
-  // }, [sort, activeCategory, currentPage]);
+
+
 
   return (
     <div className="container">

@@ -21,7 +21,8 @@ const CartItem: FC<CartItemTypes> = ({
   const onClickPlus = () => {
     dispatch(
       addProduct({
-        id
+        id,
+     
       } as CartItemTypes)
     );
   };
@@ -29,10 +30,13 @@ const CartItem: FC<CartItemTypes> = ({
     dispatch(minusItem(id));
   };
   const onClickRemove = () => {
-    if (window.confirm("Are you sure you want to remove?")) {
-      dispatch(removeProduct(id));
-    }
-  };
+      dispatch(
+        removeProduct({
+        id,
+        title,
+      } as CartItemTypes)
+      );
+}
 
   return (
     <div className="cart__item">

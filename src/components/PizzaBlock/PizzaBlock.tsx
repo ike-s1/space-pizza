@@ -17,6 +17,7 @@ const PizzaBlock:FC<PizzaBlockTypes> = ({id, title, price, imageUrl, sizes, type
   const [activeType, setActiveType] = useState<number>(0);
   const [activeSize, setActiveSize] = useState<number>(0);
 
+
   const onClickAdd = () => {
     const product = {
       id,
@@ -81,7 +82,7 @@ const PizzaBlock:FC<PizzaBlockTypes> = ({id, title, price, imageUrl, sizes, type
             />
           </svg>
           <span>Add</span>
-         { cartItem && <i>{addedCount }</i>}
+         { cartItem && <i>{  addedCount }</i>}
         </div>
       </div>
     </div>

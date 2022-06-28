@@ -18,7 +18,7 @@ const NotFound = lazy(() => import (/*webpackChunkName: "NotFound"*/'./pages/Not
 
 
 function App () {
-  return (
+  return ( 
       <Routes>
         <Route path="/" element={<MainLayout/>}>
           <Route path="" element={<Home />} />
@@ -31,6 +31,7 @@ function App () {
           </Suspense>} />
         </Route>
       </Routes>
+
   );
 }
 

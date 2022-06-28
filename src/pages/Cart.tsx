@@ -132,10 +132,10 @@ const Cart:FC = () => {
                 />
               </svg>
   
-              <span>Вернуться назад</span>
+              <span>come back</span>
             </Link>
             <div className="button pay-btn">
-              <span>Оплатить сейчас</span>
+              <span>pay now</span>
             </div>
           </div>
         </div>
