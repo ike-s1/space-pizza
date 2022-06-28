@@ -3,11 +3,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FilterSliceState, SortType } from "./types";
 
 
+const { sort, activeCategory,currentPage} = getFilterFromLS();
 
 
 const initialState: FilterSliceState = {
-  ...getFilterFromLS(),
-  searchValue: ''
+  searchValue: '',
+  sort: sort ||  { name:'popularity(Desc)',sortProperty: 'rating',order: 'desc'},
+  activeCategory,
+  currentPage
 };
 
 export const filterSlice = createSlice({

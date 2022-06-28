@@ -8,3 +8,5 @@ export const getFilterFromLS = () => {
         ...items as FilterSliceState
     }
 }
+
+
